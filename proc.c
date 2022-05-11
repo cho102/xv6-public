@@ -236,8 +236,8 @@ exit(void)
   curproc->T_finish = ticks;
   int turnaround = curproc->T_finish - curproc->T_start;
   int waiting = turnaround - curproc->burst_time;
-  cprintf("Init Lvl: %d; Turnaround time: %d; Waiting time: %d\n", curproc->init_val, turnaround, waiting);
-
+  cprintf("Init Lvl: %d;T_finish: %d, T_start: %d, Turnaround time: %d; Burst time: %d, Waiting time: %d\n", curproc->init_val, curproc->T_finish, curproc->T_start, turnaround, curproc->burst_time, waiting);
+// cprintf("Turnaround time: %d; Waiting time: %d\n", turnaround, waiting);
   if(curproc == initproc)
     panic("init exiting");
 
